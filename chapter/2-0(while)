@@ -10,7 +10,7 @@ int main()
 	cin>>name;
 	const string greeting = "Hello,"+name+"!";
 	
-	//空白行的行数pad,要输出的行数rows，要输出的列数cols 
+	//空白行的行数pad(pad由用户自定),要输出的行数rows，要输出的列数cols 
 	int pad;
 	cin>>pad;
 	const int rows=pad*2+3;
