@@ -1,0 +1,41 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+	cout<<"Please enter your first name:";
+	string name;
+	cin>>name;
+	const string greeting = "Hello,"+name+"!";
+	
+	//空白行的行数pad,要输出的行数rows，要输出的列数cols 
+	int pad;
+	cin>>pad;
+	const int rows=pad*2+3;
+	const int cols=greeting.size()+pad*2+2;
+	
+	//已输出的行数r,已输出的列数c 
+	int r,c;
+	r=0;
+	c=0;
+	
+	for(int r=0;r!=rows;++r){
+		for(int c=0;c!=cols;++c){
+			if(r==pad+1&&c==pad+1){
+				cout<<greeting;
+				c+=greeting.size()-1;
+			}
+			else{
+				if(r==0||r==rows-1||c==0||c==cols-1)
+				cout<<'*';
+				else
+				cout<<' ';
+			}
+		}
+		cout<<endl;
+	}
+	
+	return 0;
+}
