@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include<ios>
+#include<algorithm>
+#include<vector>
+
+using namespace std;
+
+int main()
+{
+	cout<<"请输入您的姓名：";
+	string name;
+	cin>>name;
+	cout<<"您好，"+name+"!" <<endl;
+	
+	cout<<"请输入您的期中、期末考试成绩：";
+	double midterm,final;
+	cin>>midterm>>final;
+	
+	cout<<"请输入您的平时作业成绩，以Ctrl+Z结束：";
+	double x;
+	vector<double> homework;
+	while(cin>>x)
+	homework.push_back(x);
+	
+	typedef vector<double>::size_type vec_size;
+	//vec_size是vector<double>::size_type的一个别名，而后者是vector类型定义的一种类型 ，用以保存vector对象的长度。 
+	vec_size size = homework.size(); 
+	sort(homework.begin(),homework.end());
+	double median;
+	if(size==0)
+	median=0;
+	else
+	{ 	if(size%2==0)
+		median=(homework[size/2-1]+homework[size/2])/2;
+		else
+		median=homework[size/2];
+	}
+	cout<<"您的总成绩为："<<setprecision(3)<<midterm*0.2+final*0.4+median*0.4; 
+	
+	return 0;
+}
