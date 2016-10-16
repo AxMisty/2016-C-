@@ -1,0 +1,52 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+using namespace std;
+
+int main()
+{
+	cout<<"请输入若干数字，以Ctrl+z结束："; 
+	int x;
+	vector<int> S,S1,S2,S3,S4;
+	while(cin>>x)
+	S.push_back(x);
+	sort(S.begin(),S.end());
+	vector<int>::size_type count = S.size()/4;
+	for(int i=0;i<count*4;++i)
+	{
+		if(i<count)
+			S4.push_back(S[i]);
+		else
+			if(i<2*count)
+				S3.push_back(S[i]);
+			else
+				if(i<3*count)
+					S2.push_back(S[i]);
+				else
+					S1.push_back(S[i]);  
+	}
+	
+	
+	cout<<"第一部分的数为：";
+	for(int i=0;i<count;++i)
+		cout<<S1[i]<<" ";
+	cout<<endl;
+	
+	cout<<"第二部分的数为：";
+	for(int i=0;i<count;++i)
+		cout<<S2[i]<<" ";
+	cout<<endl;
+	
+	cout<<"第三部分的数为：";
+	for(int i=0;i<count;++i)
+		cout<<S3[i]<<" ";
+	cout<<endl;
+	
+	cout<<"第四部分的数为：";
+	for(int i=0;i<count;++i)
+		cout<<S4[i]<<" ";
+	cout<<endl;
+	
+	return 0; 
+}
