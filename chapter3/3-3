@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<vector>
+
+using namespace std;
+
+int main()
+{
+	string x;
+	vector<string> words;
+	while(cin>>x)
+	{
+		words.push_back(x);
+	}
+	int i=0;
+	while(i!=words.size())
+	{
+		int count=0;
+		int j=0;
+		while(j!=words.size())
+		{	
+			if(words[i]==words[j])
+			{
+				if(i<=j)
+				{
+					++count;
+					++j;
+				}
+				else
+				{
+					count=0;
+					j=words.size();
+				}
+			}
+			else
+				++j;
+		}
+		if(count!=0)
+			cout<<words[i]<<"出现了"<<count<<"次；"<<endl;
+		++i;
+	}
+	return 0;
+} 
